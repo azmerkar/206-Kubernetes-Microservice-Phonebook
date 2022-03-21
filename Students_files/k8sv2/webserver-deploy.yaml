@@ -23,7 +23,10 @@ spec:
         - name: MYSQL_USER
           value: "clarus"
         - name: MYSQL_PASSWORD
-          value: "Clarusway_1"
+          valueFrom:
+            secretKeyRef:
+              name: mysqlsecret
+              key: mysql-admin-password
         - name: MYSQL_DATABASE
           value: "phonebook"
         - name: MYSQL_DATABASE_HOST
