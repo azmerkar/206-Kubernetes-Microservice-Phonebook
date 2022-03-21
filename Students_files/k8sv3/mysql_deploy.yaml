@@ -32,10 +32,9 @@ spec:
             secretKeyRef:
               name: mysqlsecret
               key: mysql-admin-password 
-        - name: MYSQL_USER
-          value: "clarus"  
-        - name: MYSQL_DATABASE
-          value: "phonebook"      
+        envFrom:
+          - configMapRef:
+              name: mysql-cm     
         ports:
         - containerPort: 3306
         volumeMounts:
